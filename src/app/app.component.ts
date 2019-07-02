@@ -23,4 +23,11 @@ export class AppComponent {
       content : bluePrintData.serverContent
     });
   }
+
+  changeFirstElement() {
+    this.serverElements[0] = {serverName: 'test', serverContent: 'test'} ;
+  }
+  removeFirstElement() {
+     this.serverElements.splice(0, 1);
+  }
 }

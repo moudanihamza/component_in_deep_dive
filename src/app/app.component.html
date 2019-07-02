@@ -5,7 +5,19 @@
   <hr>
   <div class="row">
      <div class="col-xs-12">
-         <app-server-element *ngFor=" let serverElement of serverElements " [element]="serverElement"></app-server-element>
+        <button class="btn btn-primary" (click) = "changeFirstElement()">change First Element</button>
+        <button class="btn btn-danger" (click) = "removeFirstElement()">remove First Element</button>
+         <app-server-element *ngFor=" let serverElement of serverElements " [element]="serverElement">
+            <div class="panel-body" #contentChild>
+              <p>
+                  <strong *ngIf=" serverElement.type === 'server' " style="color: red">
+                  {{serverElement.content}}</strong>
+      
+                  <em *ngIf=" serverElement.type === 'blueprint' ">
+                  {{serverElement.content}}</em>
+              </p>
+             </div>
+         </app-server-element>
      </div>
   </div>
 </div>
